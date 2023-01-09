@@ -14,6 +14,7 @@ public class Luggage : MonoBehaviour
     private LineRenderer lineRen;
     private TrailRenderer trailRen;
     private bool isFired;
+    private int shotsFiredData = 0;
 
     private void Awake()
     {
@@ -89,10 +90,22 @@ public class Luggage : MonoBehaviour
     private IEnumerator Release()
     {
         yield return new WaitForSeconds(releaseDelay);
+        shotsFiredData += 1;
         joint.enabled = false;
         trailRen.enabled = true;
         isReleased = true;
         yield return new WaitForSeconds(3.0f);
-        Destroy(this.gameObject);
+        ResetLuggage();
+    }
+
+    public void ResetLuggage()
+    {
+        transform.position = new Vector3(-6f, -3f, 0.0f);
+        lineRen.enabled = false;
+        trailRen.enabled = false;
+        isReleased = false;
+        isFired = false;
+        isPressed = false;
+        joint.enabled = true;
     }
 }

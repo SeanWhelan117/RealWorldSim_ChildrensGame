@@ -25,6 +25,7 @@ public class collision : MonoBehaviour
             Debug.Log("collided with goal");
             GameManager.GetComponent<SpawnGoals>().changePos();
             GameManager.GetComponent<SpawnGoals>().SpawnStar();
+            //this.gameObject.GetComponent<Luggage>().ResetLuggage();
         }
     }
 }
