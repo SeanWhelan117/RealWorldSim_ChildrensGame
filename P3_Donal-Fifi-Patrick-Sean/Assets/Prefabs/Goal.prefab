@@ -10,7 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5836858026574556363}
   - component: {fileID: 5836858026574556362}
+<<<<<<< Updated upstream
   - component: {fileID: -3934208796461887282}
+=======
+  - component: {fileID: 5930830645658516126}
+  - component: {fileID: -5428256810078246359}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Goal
   m_TagString: goal
@@ -85,7 +90,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< Updated upstream
 --- !u!58 &-3934208796461887282
+=======
+--- !u!58 &5930830645658516126
+>>>>>>> Stashed changes
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,3 +110,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+<<<<<<< Updated upstream
+=======
+--- !u!114 &-5428256810078246359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836858026574556361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43aa4b71db6fcc448eef5c94bf19c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> Stashed changes
