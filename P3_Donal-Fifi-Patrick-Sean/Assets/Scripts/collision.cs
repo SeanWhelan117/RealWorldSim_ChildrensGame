@@ -25,7 +25,7 @@ public class collision : MonoBehaviour
         {
          
             GameManager.GetComponent<SpawnGoals>().changePos();
-            GameManager.GetComponent<SpawnGoals>().SpawnStar();
+          
             shotsHit++;
            
         }

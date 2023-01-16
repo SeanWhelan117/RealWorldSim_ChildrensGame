@@ -14,8 +14,12 @@ public class CalculateScore : MonoBehaviour
     {
         Shots_Fired = luggage.gameObject.GetComponent<Luggage>().shotsFiredData;
         Shots_hit = luggage.gameObject.GetComponent<collision>().shotsHit;
-        Shots_Missed = Mathf.RoundToInt(Shots_hit / Shots_Fired);
-        Evaluation_Score = Mathf.RoundToInt(Shots_Fired / Shots_Missed);
+        if(Shots_Fired!=0&&Shots_hit!=0)
+        {
+            Shots_Missed = Mathf.RoundToInt(Shots_hit / Shots_Fired);
+            Evaluation_Score = Mathf.RoundToInt(Shots_Fired / Shots_Missed);
+        }
+     
 
         if(Shots_hit > 3)
         {

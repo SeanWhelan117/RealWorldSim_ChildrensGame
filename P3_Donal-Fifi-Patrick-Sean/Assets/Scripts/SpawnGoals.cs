@@ -9,7 +9,7 @@ public class SpawnGoals : MonoBehaviour
     public GameObject goal;
     int randomNum = 0;
     private GameObject clone;
-    public GameObject star;
+
 
     float Xpos=-8.0f;
     Vector3 vec;
@@ -25,12 +25,7 @@ public class SpawnGoals : MonoBehaviour
     }
 
    
-    public void SpawnStar()
-    {
-        vec = new Vector3(Xpos, 4.0f, 0.0f);
-        Xpos = Xpos + 1;
-        star = Instantiate(star, vec, Quaternion.identity);
-    }
+   
     public void changePos()
     {
         Destroy(clone);
