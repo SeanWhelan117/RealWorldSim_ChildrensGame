@@ -6,6 +6,7 @@ public class collision : MonoBehaviour
 {
     public GameObject goal;
     public GameObject GameManager;
+    public int shotsHit;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +23,11 @@ public class collision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("goal"))
         {
-            Debug.Log("collided with goal");
+         
             GameManager.GetComponent<SpawnGoals>().changePos();
             GameManager.GetComponent<SpawnGoals>().SpawnStar();
-            //this.gameObject.GetComponent<Luggage>().ResetLuggage();
+            shotsHit++;
+           
         }
     }
 }

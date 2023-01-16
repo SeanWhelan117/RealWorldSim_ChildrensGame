@@ -15,7 +15,7 @@ public class Luggage : MonoBehaviour
     private TrailRenderer trailRen;
     public GameObject m_goal;
     private bool isFired;
-    private int shotsFiredData = 0;
+    public int shotsFiredData = 0;
     
  
 
