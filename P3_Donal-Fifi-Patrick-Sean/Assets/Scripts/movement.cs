@@ -15,7 +15,7 @@ public class movement : MonoBehaviour
         if (collision.gameObject.CompareTag("goal"))
         {
             manager.gameObject.GetComponent<SpawnGoals>().changePos();
-            manager.gameObject.GetComponent<SpawnGoals>().SpawnStar();
+          
             
         }
     }
