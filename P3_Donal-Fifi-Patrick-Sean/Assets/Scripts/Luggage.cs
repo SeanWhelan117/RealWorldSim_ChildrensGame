@@ -27,7 +27,7 @@ public class Luggage : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         joint = GetComponent<SpringJoint2D>();
         joint.distance = 0.005f;
-        joint.frequency = 1.0f;
+        joint.frequency = 1.15f;
         joint.connectedBody = m_sling.GetComponent<Rigidbody2D>();
         slingRb = joint.connectedBody;
         releaseDelay = 1 / (joint.frequency * 4);
@@ -75,12 +75,17 @@ public class Luggage : MonoBehaviour
        
         if (Input.GetMouseButtonDown(0))
         {
-            isPressed = true;
-            rb.isKinematic = true;
-            lineRen.enabled = true;
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float distance = Vector2.Distance(mousePos, slingRb.position);
+            if (distance <0.5f)
+            {
+                isPressed = true;
+                rb.isKinematic = true;
+                lineRen.enabled = true;
+            }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && isPressed)
         {
             isFired = true;
             rb.isKinematic = false;

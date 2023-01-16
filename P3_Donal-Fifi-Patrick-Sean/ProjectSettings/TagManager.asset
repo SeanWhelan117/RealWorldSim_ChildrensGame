@@ -11,6 +11,9 @@ TagManager:
   - Sling
   - GameMananger
   - GameManager
+  - Nitrogen
+  - Hydrogen
+  - Carbon
   layers:
   - Default
   - TransparentFX
