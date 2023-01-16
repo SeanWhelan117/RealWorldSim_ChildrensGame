@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 172210302}
   - component: {fileID: 172210301}
   - component: {fileID: 172210303}
+  - component: {fileID: 172210304}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -190,6 +191,20 @@ MonoBehaviour:
   spawnPoints: []
   sling: {fileID: 4206346025077175805, guid: 3a8a5bd41b603c449954c1c7376c097e, type: 3}
   luggage: {fileID: 599407628495126847, guid: 1076be30e1b63574ebb5deea0e7ad8c0, type: 3}
+--- !u!114 &172210304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172210300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76bc7ec9f5397541bb420ee72f2bd04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luggage: {fileID: 0}
+  characterSelected: 1
 --- !u!1001 &389209454
 PrefabInstance:
   m_ObjectHideFlags: 0

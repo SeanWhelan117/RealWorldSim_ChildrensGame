@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -2467806918672803391}
   m_Layer: 0
   m_Name: luggage
-  m_TagString: Untagged
+  m_TagString: luggage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ SpringJoint2D:
   m_GameObject: {fileID: 599407628495126847}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -170,8 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940840ad96892fb41a76a0afd027671a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  releaseDelay: 0
   maxDragDistance: 2
   m_goal: {fileID: 4597379655268106391, guid: 12ba6c9e5421fb042a912ad674dd2fc9, type: 3}
+  m_sling: {fileID: 0}
 --- !u!120 &599407628495126840
 LineRenderer:
   m_ObjectHideFlags: 0
