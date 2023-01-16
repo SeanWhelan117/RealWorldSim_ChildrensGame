@@ -16,9 +16,7 @@ public class Luggage : MonoBehaviour
     public GameObject m_goal;
     private bool isFired;
     private int shotsFiredData = 0;
-    public bool TitaniumChosen=false;
-    public bool CarbonChosen=false;
-    public bool HydrogenChosen=false;
+    
  
 
     private void Awake()
