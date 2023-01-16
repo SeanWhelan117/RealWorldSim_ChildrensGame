@@ -16,8 +16,7 @@ public class Luggage : MonoBehaviour
     public GameObject m_goal;
     public GameObject m_sling;
     private bool isFired;
-    private int shotsFiredData = 0;
-
+    public int shotsFiredData = 0;
     
  
 

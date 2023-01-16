@@ -9,8 +9,10 @@ using UnityEngine.Networking;
 public class GameState
 {
     public int sessionId;
-    public int point1;
-    public int point2;
+    public int shotsFired;
+    public int shotsHit;
+   // public int score;
+
 
 }
 [System.Obsolete]

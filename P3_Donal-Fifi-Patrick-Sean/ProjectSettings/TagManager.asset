@@ -14,6 +14,9 @@ TagManager:
   - Nitrogen
   - Hydrogen
   - Carbon
+  - egg
+  - bird
+  - ground
   layers:
   - Default
   - TransparentFX

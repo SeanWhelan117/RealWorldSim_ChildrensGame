@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PatrickTest.unity
     guid: 008fa48e631a51a4b8bf0eb64729ffed
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: d51578c78ba69fe42b350a93589493ae
   m_configObjects: {}
