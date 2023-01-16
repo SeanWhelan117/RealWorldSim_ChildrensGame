@@ -8,21 +8,27 @@ public class Luggage : MonoBehaviour
     private bool isReleased;
     private Rigidbody2D rb;
     private SpringJoint2D joint;
-    private float releaseDelay;
+    public float releaseDelay;
     public float maxDragDistance = 2.0f;
     private Rigidbody2D slingRb;
     private LineRenderer lineRen;
     private TrailRenderer trailRen;
     public GameObject m_goal;
+    public GameObject m_sling;
     private bool isFired;
     private int shotsFiredData = 0;
+
     
  
 
     private void Awake()
     {
+        m_sling = GameObject.FindGameObjectWithTag("Sling");
         rb = GetComponent<Rigidbody2D>();
         joint = GetComponent<SpringJoint2D>();
+        joint.distance = 0.005f;
+        joint.frequency = 1.15f;
+        joint.connectedBody = m_sling.GetComponent<Rigidbody2D>();
         slingRb = joint.connectedBody;
         releaseDelay = 1 / (joint.frequency * 4);
         lineRen = GetComponent<LineRenderer>();
@@ -31,6 +37,11 @@ public class Luggage : MonoBehaviour
         setColorSuitcase();
         isReleased = false;
         isFired = false;
+    }
+
+    public void SetReleaseDelay(float t_releaseDelay)
+    {
+        releaseDelay = t_releaseDelay;
     }
 
     private void setColorSuitcase()
@@ -64,12 +75,17 @@ public class Luggage : MonoBehaviour
        
         if (Input.GetMouseButtonDown(0))
         {
-            isPressed = true;
-            rb.isKinematic = true;
-            lineRen.enabled = true;
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float distance = Vector2.Distance(mousePos, slingRb.position);
+            if (distance <0.5f)
+            {
+                isPressed = true;
+                rb.isKinematic = true;
+                lineRen.enabled = true;
+            }
         }
-        if (Input.GetMouseButtonUp(0))
-        if (Input.GetMouseButtonUp(0))
+
+        if (Input.GetMouseButtonUp(0) && isPressed)
         {
             isFired = true;
             rb.isKinematic = false;
@@ -81,8 +97,12 @@ public class Luggage : MonoBehaviour
         {
             DragBall();
         }
-        if (isReleased)
+        if (isReleased && isFired)
         {
+            Debug.Log("fireddd");
+            shotsFiredData += 1;
+            joint.enabled = false;
+            trailRen.enabled = true;
             onScreen();
         }
     }
@@ -119,11 +139,11 @@ public class Luggage : MonoBehaviour
 
     private IEnumerator Release()
     {
-        yield return new WaitForSeconds(releaseDelay);
-        shotsFiredData += 1;
-        joint.enabled = false;
-        trailRen.enabled = true;
-        isReleased = true;
+        //yield return new WaitForSeconds(releaseDelay);
+        //shotsFiredData += 1;
+        //joint.enabled = false;
+        //trailRen.enabled = true;
+
         yield return new WaitForSeconds(3.0f);
         ResetLuggage();
     }
@@ -137,5 +157,18 @@ public class Luggage : MonoBehaviour
         isFired = false;
         isPressed = false;
         joint.enabled = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Sling"))
+        {
+            Debug.Log("collided with goal");
+            if (isFired)
+            {
+                isReleased = true;
+            }
+
+        }
     }
 }

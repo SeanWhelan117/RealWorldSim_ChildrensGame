@@ -6,10 +6,11 @@ public class collision : MonoBehaviour
 {
     public GameObject goal;
     public GameObject GameManager;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        GameManager = GameObject.FindGameObjectWithTag("GameManager");
     }
 
     // Update is called once per frame
@@ -24,6 +25,7 @@ public class collision : MonoBehaviour
         {
             Debug.Log("collided with goal");
             GameManager.GetComponent<SpawnGoals>().changePos();
+            GameManager.GetComponent<SpawnSlingPositions>().changePos();
             GameManager.GetComponent<SpawnGoals>().SpawnStar();
             //this.gameObject.GetComponent<Luggage>().ResetLuggage();
         }
