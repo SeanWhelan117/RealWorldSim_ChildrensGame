@@ -14,6 +14,7 @@ public class Luggage : MonoBehaviour
     private LineRenderer lineRen;
     private TrailRenderer trailRen;
     public GameObject m_goal;
+    public GameObject m_sling;
     private bool isFired;
     private int shotsFiredData = 0;
     
@@ -21,8 +22,11 @@ public class Luggage : MonoBehaviour
 
     private void Awake()
     {
+        m_sling = GameObject.FindGameObjectWithTag("Sling");
         rb = GetComponent<Rigidbody2D>();
         joint = GetComponent<SpringJoint2D>();
+        joint.distance = 0.005f;
+        joint.connectedBody = m_sling.GetComponent<Rigidbody2D>();
         slingRb = joint.connectedBody;
         releaseDelay = 1 / (joint.frequency * 4);
         lineRen = GetComponent<LineRenderer>();

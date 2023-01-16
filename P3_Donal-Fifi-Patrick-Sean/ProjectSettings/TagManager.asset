@@ -8,6 +8,9 @@ TagManager:
   - Rock
   - goal
   - luggage
+  - Sling
+  - GameMananger
+  - GameManager
   layers:
   - Default
   - TransparentFX
