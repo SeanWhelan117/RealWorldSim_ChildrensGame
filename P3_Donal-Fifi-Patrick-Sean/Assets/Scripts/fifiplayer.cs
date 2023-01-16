@@ -15,9 +15,9 @@ public class fifiplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        randSession = Random.Range(1, 1000);
-        points1 = Random.Range(1, 10);
-        points2 = Random.Range(1, 10);
+        //randSession = Random.Range(1, 1000);
+        //points1 = Random.Range(1, 10);
+        //points2 = Random.Range(1, 10);
 
     }
 
@@ -26,17 +26,17 @@ public class fifiplayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            SendData();
+            //SendData();
         }
     }
 
 
-    [System.Obsolete]
-    public void SendData()
-    {
-        GameState data = new GameState { sessionId = randSession, point1 = points1, point2 = points2 };
+    //[System.Obsolete]
+    //public void SendData()
+    //{
+    //    GameState data = new GameState { sessionId = randSession, point1 = points1, point2 = points2 };
 
-        string jsonData = JsonUtility.ToJson(data);
-        StartCoroutine(AnalythicManager.PostMethod(jsonData));
-    }
+    //    string jsonData = JsonUtility.ToJson(data);
+    //    StartCoroutine(AnalythicManager.PostMethod(jsonData));
+    //}
 }
