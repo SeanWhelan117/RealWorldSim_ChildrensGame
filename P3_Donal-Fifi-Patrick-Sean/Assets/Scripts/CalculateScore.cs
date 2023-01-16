@@ -12,9 +12,9 @@ public class CalculateScore : MonoBehaviour
     public int shotsH = 2;
     public int Shots_Fired;
     public int Shots_hit;
-    public int Shots_Missed;
+   // public int Shots_Missed;
     public GameObject luggage;
-    public int Evaluation_Score;
+   // public int Evaluation_Score;
 
     private void Start()
     {
@@ -26,10 +26,14 @@ public class CalculateScore : MonoBehaviour
     {
         Shots_Fired = luggage.gameObject.GetComponent<Luggage>().shotsFiredData;
         Shots_hit = luggage.gameObject.GetComponent<collision>().shotsHit;
-       // Shots_Missed = Mathf.RoundToInt(Shots_hit / Shots_Fired);
-       // Evaluation_Score = Mathf.RoundToInt(Shots_Fired / Shots_Missed);
+        //if(Shots_Fired!=0&&Shots_hit!=0)
+        //{
+        // //   Shots_Missed = Mathf.RoundToInt(Shots_hit / Shots_Fired);
+        // //   Evaluation_Score = Mathf.RoundToInt(Shots_Fired / Shots_Missed);
+        //}
 
-        if(Shots_hit > 3)
+
+        if (Shots_hit > 3)
         {
             SendData();
             SceneManager.LoadScene("WinScene");
@@ -49,7 +53,7 @@ public class CalculateScore : MonoBehaviour
     [System.Obsolete]
     public void SendData()
     {
-        GameState data = new GameState { sessionId = randSession};//score= Evaluation_Score
+        GameState data = new GameState { sessionId = randSession, shotsFired = Shots_Fired, shotsHit = Shots_hit };//score= Evaluation_Score
 
         string jsonData = JsonUtility.ToJson(data);
         StartCoroutine(AnalythicManager.PostMethod(jsonData));
