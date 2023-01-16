@@ -171,6 +171,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDragDistance: 2
+  m_goal: {fileID: 4597379655268106391, guid: 12ba6c9e5421fb042a912ad674dd2fc9, type: 3}
+  TitaniumChosen: 0
+  CarbonChosen: 0
+  HydrogenChosen: 0
 --- !u!120 &599407628495126840
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -381,3 +385,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730418c198c25244dafd1dde804c627b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goal: {fileID: 4597379655268106391, guid: 12ba6c9e5421fb042a912ad674dd2fc9, type: 3}
+  GameManager: {fileID: 0}

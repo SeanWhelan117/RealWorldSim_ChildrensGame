@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5785677327458391837}
   - component: {fileID: 8523152211536522785}
   - component: {fileID: 6459115129270787690}
+  - component: {fileID: -9153128906724279902}
   m_Layer: 0
-  m_Name: goal
+  m_Name: Goal
   m_TagString: goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,3 +102,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-9153128906724279902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597379655268106391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1349a2ed17995c4389536a9025bb553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColorSwitcher: 0

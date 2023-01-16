@@ -27,8 +27,6 @@ public class SpawnGoals : MonoBehaviour
    
     public void SpawnStar()
     {
-
-     
         vec = new Vector3(Xpos, 4.0f, 0.0f);
         Xpos = Xpos + 1;
         star = Instantiate(star, vec, Quaternion.identity);

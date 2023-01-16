@@ -13,8 +13,13 @@ public class Luggage : MonoBehaviour
     private Rigidbody2D slingRb;
     private LineRenderer lineRen;
     private TrailRenderer trailRen;
+    public GameObject m_goal;
     private bool isFired;
     private int shotsFiredData = 0;
+    public bool TitaniumChosen=false;
+    public bool CarbonChosen=false;
+    public bool HydrogenChosen=false;
+ 
 
     private void Awake()
     {
@@ -25,20 +30,47 @@ public class Luggage : MonoBehaviour
         lineRen = GetComponent<LineRenderer>();
         lineRen.enabled = false;
         trailRen = GetComponent<TrailRenderer>();
-        trailRen.enabled = false;   
+        setColorSuitcase();
         isReleased = false;
         isFired = false;
     }
 
+    private void setColorSuitcase()
+    {
+        int ColorCounter = Random.Range(1, 4);
+        if (ColorCounter==1)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        }
+        else if(ColorCounter == 2)
+        {
+            // set luggage to green if goal is green 
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+        }
+        else if(ColorCounter == 3)
+        {
+            // set luggage to blue if goal is blue 
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.0f, 0.0f, 1.0f, 1.0f);
+        }
+        else if (ColorCounter == 4)
+        {
+            // set luggage to white if goal is white 
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        }
+    }
+
     private void Update()
     {
+      
 
+       
         if (Input.GetMouseButtonDown(0))
         {
             isPressed = true;
             rb.isKinematic = true;
             lineRen.enabled = true;
         }
+        if (Input.GetMouseButtonUp(0))
         if (Input.GetMouseButtonUp(0))
         {
             isFired = true;
