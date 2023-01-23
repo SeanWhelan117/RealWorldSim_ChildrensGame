@@ -16,6 +16,10 @@ TagManager:
   - goal
   - Rock
   - spawn
+  - Torch
+  - light
+  - Pachinko
+  - Roof
   layers:
   - Default
   - TransparentFX

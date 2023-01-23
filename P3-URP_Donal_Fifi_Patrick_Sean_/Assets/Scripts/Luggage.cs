@@ -25,12 +25,18 @@ public class Luggage : MonoBehaviour
     
  
     private bool isAlive;
+    private bool isGrounded;
 
     public void resetAlive()
     {
         isAlive = false;
     }
 
+    public void checkIsGrounded()
+    {
+        isGrounded = true;
+        StartCoroutine(Release());
+    }
 
     private void Awake()
     {
@@ -52,6 +58,8 @@ public class Luggage : MonoBehaviour
         isReleased = false;
         isFired = false;
         isAlive = true;
+        isGrounded = false;
+
     }
 
     public void SetReleaseDelay(float t_releaseDelay)
@@ -108,11 +116,15 @@ public class Luggage : MonoBehaviour
             adamParticle.Play();
 
         }
-
-        if (isFired == true)
+        if (rb.transform.position.y < -3.8)
         {
-            StartCoroutine(Release());
+            StartCoroutine(Reset());
         }
+
+        //if (isFired == true)
+        //{
+        //    StartCoroutine(Release());
+        //}
 
         if (isPressed && isFired == false)
         {
@@ -163,6 +175,13 @@ public class Luggage : MonoBehaviour
         lineRen.SetPositions(positions);
     }
 
+    private IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(1.0f);
+                lineRen.enabled = false;
+                ResetLuggage();
+    }
+
     private IEnumerator Release()
     {
         yield return new WaitForSeconds(0.1f);
@@ -170,11 +189,15 @@ public class Luggage : MonoBehaviour
         //shotsFiredData += 1;
         //joint.enabled = false;
         //trailRen.enabled = true;
-        if((rb.velocity.x > -0.5 && rb.velocity.x <0.5))
-        //if (rb.velocity.x == 0 && rb.velocity.y == 0)
+        if (isGrounded == true)
         {
-            lineRen.enabled = false;
-            ResetLuggage();
+            yield return new WaitForSeconds(0.1f);
+            if ((rb.velocity.x > -0.5 && rb.velocity.x < 0.5) && (rb.velocity.y > -0.5 && rb.velocity.y < 0.5))
+            //if (rb.velocity.x == 0 && rb.velocity.y == 0)
+            {
+                lineRen.enabled = false;
+                ResetLuggage();
+            }
         }
     }
 
@@ -195,6 +218,7 @@ public class Luggage : MonoBehaviour
         rb.angularVelocity = 0;
         rb.rotation = 0;
         isAlive = true;
+        isGrounded = false;
         this.gameObject.GetComponent<Renderer>().enabled = true;
 
     }
