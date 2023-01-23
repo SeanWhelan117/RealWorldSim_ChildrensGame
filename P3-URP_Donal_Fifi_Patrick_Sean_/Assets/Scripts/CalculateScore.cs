@@ -13,6 +13,7 @@ public class CalculateScore : MonoBehaviour
     public int Shots_Fired;
     public int Shots_hit;
     public int Shots_Missed;
+    public float Evaluation_Score;
     public GameObject luggage;
     public GameObject LuggageIdentfier;
    
@@ -20,7 +21,6 @@ public class CalculateScore : MonoBehaviour
 
     private void Start()
     {
-        
         randSession = Random.Range(1, 1000);
     }
     // Start is called before the first frame update
@@ -29,13 +29,13 @@ public class CalculateScore : MonoBehaviour
         //Shots_Fired = luggage.gameObject.GetComponent<Luggage>().shotsFiredData;
         //Shots_hit = luggage.gameObject.GetComponent<collision>().shotsHit;
 
-        //if(Shots_Fired!=0&&Shots_hit!=0)
-        //{
-        //    Shots_Missed = Mathf.RoundToInt(Shots_hit / Shots_Fired);
-        //    Evaluation_Score = Mathf.RoundToInt(Shots_Fired / Shots_Missed); 
-        //}
-     
-        if(Shots_Missed>2)
+        if (Shots_Fired != 0 && Shots_hit != 0)
+        {
+            Shots_Missed = Mathf.RoundToInt(Shots_hit / Shots_Fired);
+            Evaluation_Score = Mathf.RoundToInt(Shots_Fired / Shots_Missed);
+        }
+
+        if (Shots_Missed>2)
         {
             luggage.GetComponent<Luggage>().setColorSuitcase();
            

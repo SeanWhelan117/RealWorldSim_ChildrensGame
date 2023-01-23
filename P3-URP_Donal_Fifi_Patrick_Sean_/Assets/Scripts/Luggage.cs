@@ -32,7 +32,7 @@ public class Luggage : MonoBehaviour
 
     private void Awake()
     {
-      
+        transform.localRotation = Quaternion.identity;
         m_sling = GameObject.FindGameObjectWithTag("Sling");
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic = true;
