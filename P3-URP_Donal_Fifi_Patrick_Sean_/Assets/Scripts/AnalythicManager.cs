@@ -8,9 +8,10 @@ using UnityEngine.Networking;
 [System.Serializable]
 public class GameState
 {
-    public int sessionId;
+    public string sessionId;
     public int shotsFired;
     public int shotsHit;
+    public float seconds;
    // public int score;
 
 

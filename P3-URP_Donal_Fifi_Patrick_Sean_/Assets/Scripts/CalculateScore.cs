@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Net;
 using UnityEngine.Networking;
+using System;
 
 public class CalculateScore : MonoBehaviour
 {
-    public int randSession;
+    public string randSession;
     public int shotsF = 1;
     public int shotsH = 2;
     public int Shots_Fired;
@@ -16,18 +17,26 @@ public class CalculateScore : MonoBehaviour
     public float Evaluation_Score;
     public GameObject luggage;
     public GameObject LuggageIdentfier;
-   
-   // public int Evaluation_Score;
+
+    //timer
+    public float secondsCount;
+    public int secondsCountInt;
+
+    //bool
+    public bool sendOff = false;
+
+    // public int Evaluation_Score;
 
     private void Start()
     {
-        randSession = Random.Range(1, 1000);
+        randSession = SystemInfo.deviceUniqueIdentifier;
+        sendOff = true;
     }
     // Start is called before the first frame update
     void Update()
     {
-        //Shots_Fired = luggage.gameObject.GetComponent<Luggage>().shotsFiredData;
-        //Shots_hit = luggage.gameObject.GetComponent<collision>().shotsHit;
+        Shots_Fired = luggage.gameObject.GetComponent<Luggage>().shotsFiredData;
+        Shots_hit = luggage.gameObject.GetComponent<collision>().shotsHit;
 
         if (Shots_Fired != 0 && Shots_hit != 0)
         {
@@ -42,7 +51,6 @@ public class CalculateScore : MonoBehaviour
            // LuggageIdentfier.GetComponent<bubbleGoalScript>().setSuitCaseColour();
             Shots_Missed = 0;
         }
-
         if (Shots_hit > 3)
         {
             SendData();
@@ -55,18 +63,44 @@ public class CalculateScore : MonoBehaviour
             {
                 SendData();
             }
-        
+
+
+
+
+        secondsCount += Time.deltaTime;
+        secondsCountInt = Mathf.RoundToInt(secondsCount);
     }
 
+    private void FixedUpdate()
+    {
+        if(sendOff == true)
+        {
+            StartCoroutine(sendBoisOver());
 
- 
+        }
+
+    }
+
     [System.Obsolete]
     public void SendData()
     {
-        GameState data = new GameState { sessionId = randSession, shotsFired = Shots_Fired, shotsHit = Shots_hit };//score= Evaluation_Score
+        randSession = randSession = System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss-") + randSession;
+
+        GameState data = new GameState { sessionId = randSession, shotsFired = Shots_Fired, shotsHit = Shots_hit, seconds = secondsCountInt };
 
         string jsonData = JsonUtility.ToJson(data);
         StartCoroutine(AnalythicManager.PostMethod(jsonData));
+    }
+
+
+    [System.Obsolete]
+    IEnumerator sendBoisOver()
+    {
+        sendOff = false;
+        yield return new WaitForSeconds(5);
+        SendData();
+        Debug.Log("data has been sent");
+        sendOff = true;
     }
 
 }

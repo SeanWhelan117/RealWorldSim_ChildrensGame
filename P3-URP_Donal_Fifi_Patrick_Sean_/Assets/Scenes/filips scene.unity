@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4206346025077175794, guid: 44c1c018db6e52a4192bc674e22ade9e, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4206346025077175794, guid: 44c1c018db6e52a4192bc674e22ade9e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -275,7 +275,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1451439433
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -301,7 +301,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174083708
 GameObject:
@@ -369,7 +369,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -487,7 +487,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
@@ -598,7 +598,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654222038
 GameObject:
@@ -682,7 +682,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &759527993
 PrefabInstance:
@@ -862,7 +862,9 @@ MonoBehaviour:
   maxDragDistance: 2
   m_goal: {fileID: 1047890949}
   m_sling: {fileID: 1405839981}
+  GameManager: {fileID: 0}
   shotsFiredData: 0
+  ColourTimer: 0
 --- !u!114 &780914651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -906,7 +908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5297783590581483894, guid: 9fa38aea6a1979144ba225bc8183f886, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5297783590581483894, guid: 9fa38aea6a1979144ba225bc8183f886, type: 3}
       propertyPath: m_LocalPosition.x
@@ -979,7 +981,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1405839981 stripped
 GameObject:
@@ -995,7 +997,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7926162856788845273, guid: f3c7aba6e1c1c5444992006e67762db4, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7926162856788845273, guid: f3c7aba6e1c1c5444992006e67762db4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1117,12 +1119,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa6caf003c00a249a0e95b1bd09955e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randSession: 0
+  randSession: 
   shotsF: 0
   shotsH: 0
   Shots_Fired: 0
   Shots_hit: 0
-  luggage: {fileID: 599407628495126847, guid: 8c8cfac091bd0d14091bed4677b66b81, type: 3}
+  Shots_Missed: 0
+  Evaluation_Score: 0
+  luggage: {fileID: 780914640}
+  LuggageIdentfier: {fileID: 780914640}
+  secondsCount: 0
+  secondsCountInt: 0
+  sendOff: 0
 --- !u!114 &1937716236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1154,5 +1162,5 @@ Transform:
   m_Children:
   - {fileID: 1805376806}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
