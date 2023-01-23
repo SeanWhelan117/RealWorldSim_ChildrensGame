@@ -105,6 +105,7 @@ public class Luggage : MonoBehaviour
                 isPressed = true;
                 rb.isKinematic = true;
                 lineRen.enabled = true;
+                
             }
         }
 
@@ -205,11 +206,10 @@ public class Luggage : MonoBehaviour
     {
         adamParticle.Pause();
         transform.position = slingRb.position;
+        transform.position = slingRb.transform.position;
         trailRen.enabled = false;
         trailRen.Clear();
-        isReleased = false;
-        isFired = false;
-        isPressed = false;
+
         joint.enabled = true;
         setColorSuitcase();
         GameManager.GetComponent<CalculateScore>().Shots_Missed += 1;
@@ -219,6 +219,9 @@ public class Luggage : MonoBehaviour
         rb.rotation = 0;
         isAlive = true;
         isGrounded = false;
+        isReleased = false;
+        isFired = false;
+        isPressed = false;
         this.gameObject.GetComponent<Renderer>().enabled = true;
 
     }
