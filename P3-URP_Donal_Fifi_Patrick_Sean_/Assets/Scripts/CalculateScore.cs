@@ -37,9 +37,9 @@ public class CalculateScore : MonoBehaviour
 
         if (Shots_Missed>2)
         {
-            luggage.GetComponent<Luggage>().setColorSuitcase();
+            //luggage.GetComponent<Luggage>().setColorSuitcase();
            
-            LuggageIdentfier.GetComponent<bubbleGoalScript>().setSuitCaseColour();
+           // LuggageIdentfier.GetComponent<bubbleGoalScript>().setSuitCaseColour();
             Shots_Missed = 0;
         }
 
