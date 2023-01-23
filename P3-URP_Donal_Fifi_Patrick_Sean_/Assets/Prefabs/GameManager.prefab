@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1484610305635204936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1484610305635204943}
+  - component: {fileID: 1484610305635204941}
+  - component: {fileID: 1484610305635204938}
+  - component: {fileID: 1484610305635204942}
+  - component: {fileID: 1484610305635204945}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1484610305635204943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484610305635204936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.878108, y: -1.8383286, z: 0.13581663}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1484610305775490663}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1484610305635204941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484610305635204936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7d89c900a4b954ea6f8cf36c7090ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bird: {fileID: 6233613783501715026, guid: a88bba52d9c173242983635f1be322f9, type: 3}
+  TimeBetweenTryingToSpawn: 10
+  randomNum: 0
+  pos: {fileID: 1484610305775490663}
+  canSpawn: 1
+--- !u!114 &1484610305635204938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484610305635204936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa6caf003c00a249a0e95b1bd09955e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randSession: 0
+  shotsF: 0
+  shotsH: 0
+  Shots_Fired: 0
+  Shots_hit: 0
+  Shots_Missed: 0
+  Evaluation_Score: 0
+  luggage: {fileID: 0}
+  LuggageIdentfier: {fileID: 0}
+  secondsCount: 0
+  secondsCountInt: 0
+  sendOff: 0
+--- !u!114 &1484610305635204942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484610305635204936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbc63f0e60244e4785973c840b5665e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pullBackArrow: {fileID: 7238970569269075056, guid: c6d0635fb79c3924b8e0fa5f2a979aa0, type: 3}
+  shootForwardArrow: {fileID: 4377644960467741505, guid: eb86f4aa6428351498752d479152c425, type: 3}
+  luggage: {fileID: 0}
+--- !u!114 &1484610305635204945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484610305635204936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eae69722c431664bbed471173f188ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints: []
+  sling: {fileID: 0}
+  luggage: {fileID: 0}
+--- !u!1 &1484610305775490660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1484610305775490663}
+  m_Layer: 0
+  m_Name: birdSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1484610305775490663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484610305775490660}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.45, y: 4.0783286, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1484610305635204943}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

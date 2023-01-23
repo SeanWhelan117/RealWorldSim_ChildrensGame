@@ -74,10 +74,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1031961721
-  m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1453838759, guid: 7d8cbcb3a4e4c4d41828edb2f748f2de, type: 3}
+  m_SortingLayerID: 1451439433
+  m_SortingLayer: 4
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 563431828, guid: 1d41e1001b42666429352c5949e58929, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 6233613783501715026}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b8332a8fa3fac544a952364c0158f7f1, type: 2}
+  m_Controller: {fileID: 9100000, guid: c8c37dfa93f576c44aefa03593797bde, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -117,14 +117,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6233613783501715026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e56e6eaf7310db64086437708632a0ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ad6dc8f8fc9cf2429b834f93e608754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 6233613783501715039}
   Speed: 3
   birdHit: 0
-  expolosion: {fileID: 7715138562647640234, guid: e53b516e15e9c0341bec9cb2432a65bc, type: 3}
-  egg: {fileID: 4979232889521844952, guid: d157fa550aac2704294ec2373ff4278f, type: 3}
+  expolosion: {fileID: 7715138562647640234, guid: 1632007a631d72846873cb7a7f1960bc, type: 3}
+  egg: {fileID: 4979232889521844952, guid: 0169427f82f9f774685f40d6cd6d5bce, type: 3}
 --- !u!50 &6233613783501715039
 Rigidbody2D:
   serializedVersion: 4

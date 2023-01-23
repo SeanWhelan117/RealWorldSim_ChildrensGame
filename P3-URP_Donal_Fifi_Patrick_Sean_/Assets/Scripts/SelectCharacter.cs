@@ -8,7 +8,7 @@ public class SelectCharacter : MonoBehaviour
     public GameObject nitrogen;
     public GameObject hydrogen;
     public GameObject carbon;
-    public GameObject sling;
+   // public GameObject sling;
 
 
     public int characterSelected = 0;
@@ -21,8 +21,10 @@ public class SelectCharacter : MonoBehaviour
         nitrogen = GameObject.FindWithTag("Nitrogen");
         hydrogen = GameObject.FindWithTag("Hydrogen");
         carbon = GameObject.FindWithTag("Carbon");
-        sling = GameObject.FindWithTag("Sling");
-        nitrogen.transform.position = new Vector3(sling.transform.position.x - 1, -4.0f, 0.0f);
+       // sling = GameObject.FindWithTag("Sling");
+        //nitrogen.transform.position = new Vector3(sling.transform.position.x - 1, -4.0f, 0.0f);
+        nitrogen.transform.position = new Vector3(-6.0f, -4.0f, 0.0f);
+
         if (luggage != null)
         {
             joint = luggage.GetComponent<SpringJoint2D>();
@@ -49,7 +51,7 @@ public class SelectCharacter : MonoBehaviour
         {
             joint.frequency = 1.15f;
         }
-        nitrogen.transform.position = new Vector3(sling.transform.position.x -1, -4.0f, 0.0f);
+        nitrogen.transform.position = new Vector3(-6.0f, -4.0f, 0.0f);
         carbon.transform.position = new Vector3(1000.0f, 1000.0f, 0.0f);
         hydrogen.transform.position = new Vector3(1000.0f, 1000.0f, 0.0f);
     }
@@ -60,7 +62,7 @@ public class SelectCharacter : MonoBehaviour
         {
             joint.frequency = 1.3f;
         }
-        hydrogen.transform.position = new Vector3(sling.transform.position.x-1, -4.0f, 0.0f);
+        hydrogen.transform.position = new Vector3(-6.0f, -4.0f, 0.0f);
         carbon.transform.position = new Vector3(1000.0f, 1000.0f, 0.0f);
         nitrogen.transform.position = new Vector3(1000.0f, 1000.0f, 0.0f);
     }
@@ -71,7 +73,7 @@ public class SelectCharacter : MonoBehaviour
         {
             joint.frequency = 1.5f;
         }
-        carbon.transform.position = new Vector3(sling.transform.position.x-1, -4.0f, 0.0f);
+        carbon.transform.position = new Vector3(-6.0f, -4.0f, 0.0f);
         hydrogen.transform.position = new Vector3(1000.0f, 1000.0f, 0.0f);
         nitrogen.transform.position = new Vector3(1000.0f, 1000.0f, 0.0f);
     }

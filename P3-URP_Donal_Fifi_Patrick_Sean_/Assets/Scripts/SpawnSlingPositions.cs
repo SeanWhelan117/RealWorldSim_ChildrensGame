@@ -18,7 +18,10 @@ public class SpawnSlingPositions : MonoBehaviour
     {
         randomNum = Random.Range(2.0f, 6.5f);
         slingClone = Instantiate(sling, new Vector3(-randomNum, -1.5f, 0.0f), Quaternion.identity);
+        slingClone.SetActive(true);
+
         luggageClone = Instantiate(luggage, new Vector3(-randomNum, -1.5f, 0.0f), Quaternion.identity);
+        luggageClone.SetActive(true);
     }
 
     public void changePos()
@@ -29,8 +32,6 @@ public class SpawnSlingPositions : MonoBehaviour
         luggageClone.GetComponent<Renderer>().enabled = false;
         luggageClone.GetComponent<Luggage>().resetAlive();
         luggageClone.GetComponent<TrailRenderer>().emitting = false;
-
-
     }
     
 }
