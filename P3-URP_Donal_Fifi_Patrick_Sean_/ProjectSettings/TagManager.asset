@@ -3,15 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Sling
+  - luggage
+  - GameManager
+  - Nitrogen
+  - Hydrogen
+  - Carbon
+  - egg
+  - bird
+  - ground
+  - goal
+  - Rock
+  - spawn
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - stairs
   - Water
   - UI
-  - 
+  - luggage
   - 
   - 
   - 
@@ -40,4 +52,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BG
+    uniqueID: 3024105793
+    locked: 0
+  - name: FG
+    uniqueID: 1451439433
     locked: 0

@@ -24,7 +24,6 @@ public class collision : MonoBehaviour
         if (collision.gameObject.CompareTag("goal"))
         {
          
-            GameManager.GetComponent<SpawnGoals>().changePos();
             GameManager.GetComponent<SpawnSlingPositions>().changePos();
             //this.gameObject.GetComponent<Luggage>().ResetLuggage();
             shotsHit++;

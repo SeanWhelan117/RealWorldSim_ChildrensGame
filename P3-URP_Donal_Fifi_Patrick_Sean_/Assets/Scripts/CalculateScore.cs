@@ -24,8 +24,8 @@ public class CalculateScore : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        Shots_Fired = luggage.gameObject.GetComponent<Luggage>().shotsFiredData;
-        Shots_hit = luggage.gameObject.GetComponent<collision>().shotsHit;
+        //Shots_Fired = luggage.gameObject.GetComponent<Luggage>().shotsFiredData;
+        //Shots_hit = luggage.gameObject.GetComponent<collision>().shotsHit;
 
         //if(Shots_Fired!=0&&Shots_hit!=0)
         //{
