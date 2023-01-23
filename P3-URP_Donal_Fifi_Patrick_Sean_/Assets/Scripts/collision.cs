@@ -23,11 +23,24 @@ public class collision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("goal"))
         {
-         
             GameManager.GetComponent<SpawnSlingPositions>().changePos();
-            //this.gameObject.GetComponent<Luggage>().ResetLuggage();
-            shotsHit++;
-           
+            shotsHit++;  
+        }
+        if (collision.gameObject.CompareTag("Roof"))
+        {
+            Debug.Log("OnRoof");
+            this.gameObject.GetComponent<Luggage>().checkIsGrounded();
+        }
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            Debug.Log("OnGround");
+            this.gameObject.GetComponent<Luggage>().checkIsGrounded();
+
+        }
+        if (collision.gameObject.CompareTag("Pachinko"))
+        {
+            Debug.Log("Pachinko");
+            collision.gameObject.GetComponent<PachinkoScript>().DisableEnableColliders();
         }
     }
 }
