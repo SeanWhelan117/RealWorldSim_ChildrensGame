@@ -83,7 +83,7 @@ public class Luggage : MonoBehaviour
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float distance = Vector2.Distance(mousePos, slingRb.position);
-            if (distance < 0.5f)
+            if (distance < 0.75f)
             {
                 isPressed = true;
                 rb.isKinematic = true;
@@ -160,7 +160,8 @@ public class Luggage : MonoBehaviour
         //shotsFiredData += 1;
         //joint.enabled = false;
         //trailRen.enabled = true;
-        if (rb.velocity.x == 0 && rb.velocity.y == 0)
+        if((rb.velocity.x > -0.5 && rb.velocity.x <0.5))
+        //if (rb.velocity.x == 0 && rb.velocity.y == 0)
         {
             lineRen.enabled = false;
             ResetLuggage();
