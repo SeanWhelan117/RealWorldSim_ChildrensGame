@@ -11,15 +11,12 @@ public class SpawnSlingPositions : MonoBehaviour
     float randomNum = 0.0f;
     private GameObject slingClone;
     private GameObject luggageClone;
-    
-
-
 
 
     // Start is called before the first frame update
     void Start()
     {
-        randomNum = Random.Range(1.0f, 7.0f);
+        randomNum = Random.Range(2.0f, 6.5f);
         slingClone = Instantiate(sling, new Vector3(-randomNum, -1.5f, 0.0f), Quaternion.identity);
         luggageClone = Instantiate(luggage, new Vector3(-randomNum, -1.5f, 0.0f), Quaternion.identity);
     }
@@ -29,6 +26,11 @@ public class SpawnSlingPositions : MonoBehaviour
         randomNum = Random.Range(1.0f, 7.0f);
 
         slingClone.transform.position = new Vector3(-randomNum, -1.5f, 0.0f);
-        luggageClone.transform.position = new Vector3(-randomNum, -1.5f, 0.0f);
+        luggageClone.GetComponent<Renderer>().enabled = false;
+        luggageClone.GetComponent<Luggage>().resetAlive();
+        luggageClone.GetComponent<TrailRenderer>().emitting = false;
+
+
     }
+    
 }
