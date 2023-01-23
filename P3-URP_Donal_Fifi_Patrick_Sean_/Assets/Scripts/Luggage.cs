@@ -15,13 +15,16 @@ public class Luggage : MonoBehaviour
     private TrailRenderer trailRen;
     public GameObject m_goal;
     public GameObject m_sling;
+    public GameObject GameManager;
     private bool isFired;
     public int shotsFiredData = 0;
+    public float ColourTimer;
     
  
 
     private void Awake()
     {
+      
         m_sling = GameObject.FindGameObjectWithTag("Sling");
         rb = GetComponent<Rigidbody2D>();
         joint = GetComponent<SpringJoint2D>();
@@ -43,7 +46,7 @@ public class Luggage : MonoBehaviour
         releaseDelay = t_releaseDelay;
     }
 
-    private void setColorSuitcase()
+    public void setColorSuitcase()
     {
         int ColorCounter = Random.Range(1, 4);
         if (ColorCounter==1)
@@ -69,9 +72,9 @@ public class Luggage : MonoBehaviour
 
     private void Update()
     {
-      
 
-       
+        ColourTimer += Time.deltaTime;
+      
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -104,6 +107,7 @@ public class Luggage : MonoBehaviour
             trailRen.enabled = true;
             onScreen();
         }
+       
     }
 
     private void onScreen()
@@ -156,6 +160,8 @@ public class Luggage : MonoBehaviour
         isFired = false;
         isPressed = false;
         joint.enabled = true;
+        setColorSuitcase();
+        GameManager.GetComponent<CalculateScore>().Shots_Missed += 1;
     }
 
     private void OnTriggerExit2D(Collider2D collision)

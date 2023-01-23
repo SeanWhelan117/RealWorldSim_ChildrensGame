@@ -12,8 +12,10 @@ public class CalculateScore : MonoBehaviour
     public int shotsH = 2;
     public int Shots_Fired;
     public int Shots_hit;
-   // public int Shots_Missed;
+    public int Shots_Missed;
     public GameObject luggage;
+    public GameObject LuggageIdentfier;
+   
    // public int Evaluation_Score;
 
     private void Start()
@@ -33,7 +35,13 @@ public class CalculateScore : MonoBehaviour
         //    Evaluation_Score = Mathf.RoundToInt(Shots_Fired / Shots_Missed); 
         //}
      
-
+        if(Shots_Missed>2)
+        {
+            luggage.GetComponent<Luggage>().setColorSuitcase();
+           
+            LuggageIdentfier.GetComponent<bubbleGoalScript>().setSuitCaseColour();
+            Shots_Missed = 0;
+        }
 
         if (Shots_hit > 3)
         {

@@ -53,6 +53,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: House
+    uniqueID: 1723218599
+    locked: 0
   - name: BG
     uniqueID: 3024105793
     locked: 0
