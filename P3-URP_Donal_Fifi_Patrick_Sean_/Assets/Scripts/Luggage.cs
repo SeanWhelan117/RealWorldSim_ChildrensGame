@@ -97,6 +97,7 @@ public class Luggage : MonoBehaviour
                 isPressed = true;
                 rb.isKinematic = true;
                 lineRen.enabled = true;
+                
             }
         }
 
@@ -194,12 +195,10 @@ public class Luggage : MonoBehaviour
 
     public void ResetLuggage()
     {
-        transform.position = slingRb.position;
+        transform.position = slingRb.transform.position;
         trailRen.enabled = false;
         trailRen.Clear();
-        isReleased = false;
-        isFired = false;
-        isPressed = false;
+
         joint.enabled = true;
         rb.isKinematic = true;
         rb.velocity = Vector3.zero;
@@ -207,6 +206,9 @@ public class Luggage : MonoBehaviour
         rb.rotation = 0;
         isAlive = true;
         isGrounded = false;
+        isReleased = false;
+        isFired = false;
+        isPressed = false;
         this.gameObject.GetComponent<Renderer>().enabled = true;
 
     }

@@ -29,7 +29,8 @@ public class SpawnSlingPositions : MonoBehaviour
         luggageClone.GetComponent<Renderer>().enabled = false;
         luggageClone.GetComponent<Luggage>().resetAlive();
         luggageClone.GetComponent<TrailRenderer>().emitting = false;
-
+        luggageClone.GetComponent<Luggage>().ResetLuggage();
+        luggageClone.GetComponent<Transform>().position = slingClone.transform.position;
 
     }
     
