@@ -19,6 +19,8 @@ public class Luggage : MonoBehaviour
     private bool isFired;
     public int shotsFiredData = 0;
 
+    public ParticleSystem adamParticle;
+
     public float ColourTimer;
     
  
@@ -103,7 +105,7 @@ public class Luggage : MonoBehaviour
             isFired = true;
             lineRen.enabled = false;
             rb.isKinematic = false;
-
+            adamParticle.Play();
 
         }
 
@@ -178,6 +180,7 @@ public class Luggage : MonoBehaviour
 
     public void ResetLuggage()
     {
+        adamParticle.Pause();
         transform.position = slingRb.position;
         trailRen.enabled = false;
         trailRen.Clear();
