@@ -18,15 +18,24 @@ public class Luggage : MonoBehaviour
     public GameObject GameManager;
     private bool isFired;
     public int shotsFiredData = 0;
+
     public float ColourTimer;
     
  
+    private bool isAlive;
+
+    public void resetAlive()
+    {
+        isAlive = false;
+    }
+
 
     private void Awake()
     {
       
         m_sling = GameObject.FindGameObjectWithTag("Sling");
         rb = GetComponent<Rigidbody2D>();
+        rb.isKinematic = true;
         joint = GetComponent<SpringJoint2D>();
         joint.distance = 0.005f;
         joint.frequency = 1.15f;
@@ -36,9 +45,11 @@ public class Luggage : MonoBehaviour
         lineRen = GetComponent<LineRenderer>();
         lineRen.enabled = false;
         trailRen = GetComponent<TrailRenderer>();
+        trailRen.enabled = false;
         setColorSuitcase();
         isReleased = false;
         isFired = false;
+        isAlive = true;
     }
 
     public void SetReleaseDelay(float t_releaseDelay)
@@ -49,16 +60,16 @@ public class Luggage : MonoBehaviour
     public void setColorSuitcase()
     {
         int ColorCounter = Random.Range(1, 4);
-        if (ColorCounter==1)
+        if (ColorCounter == 1)
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         }
-        else if(ColorCounter == 2)
+        else if (ColorCounter == 2)
         {
             // set luggage to green if goal is green 
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
         }
-        else if(ColorCounter == 3)
+        else if (ColorCounter == 3)
         {
             // set luggage to blue if goal is blue 
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0.0f, 0.0f, 1.0f, 1.0f);
@@ -79,7 +90,7 @@ public class Luggage : MonoBehaviour
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float distance = Vector2.Distance(mousePos, slingRb.position);
-            if (distance <0.5f)
+            if (distance < 0.75f)
             {
                 isPressed = true;
                 rb.isKinematic = true;
@@ -90,9 +101,15 @@ public class Luggage : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && isPressed)
         {
             isFired = true;
-            rb.isKinematic = false;
-            StartCoroutine(Release());
             lineRen.enabled = false;
+            rb.isKinematic = false;
+
+
+        }
+
+        if (isFired == true)
+        {
+            StartCoroutine(Release());
         }
 
         if (isPressed && isFired == false)
@@ -101,10 +118,14 @@ public class Luggage : MonoBehaviour
         }
         if (isReleased && isFired)
         {
-            Debug.Log("fireddd");
+            //Debug.Log("fireddd");
             shotsFiredData += 1;
             joint.enabled = false;
             trailRen.enabled = true;
+            if (isAlive)
+            {
+                trailRen.emitting = true;
+            }
             onScreen();
         }
        
@@ -121,7 +142,7 @@ public class Luggage : MonoBehaviour
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float distance = Vector2.Distance(mousePos, slingRb.position);
-        if(distance > maxDragDistance)
+        if (distance > maxDragDistance)
         {
             Vector2 direction = (mousePos - slingRb.position).normalized;
             rb.position = slingRb.position + direction * maxDragDistance;
@@ -142,26 +163,37 @@ public class Luggage : MonoBehaviour
 
     private IEnumerator Release()
     {
+        yield return new WaitForSeconds(0.1f);
         //yield return new WaitForSeconds(releaseDelay);
         //shotsFiredData += 1;
         //joint.enabled = false;
         //trailRen.enabled = true;
-
-        yield return new WaitForSeconds(3.0f);
-        ResetLuggage();
+        if((rb.velocity.x > -0.5 && rb.velocity.x <0.5))
+        //if (rb.velocity.x == 0 && rb.velocity.y == 0)
+        {
+            lineRen.enabled = false;
+            ResetLuggage();
+        }
     }
 
     public void ResetLuggage()
     {
-        transform.position = new Vector3(-6f, -3f, 0.0f);
-        lineRen.enabled = false;
+        transform.position = slingRb.position;
         trailRen.enabled = false;
+        trailRen.Clear();
         isReleased = false;
         isFired = false;
         isPressed = false;
         joint.enabled = true;
         setColorSuitcase();
         GameManager.GetComponent<CalculateScore>().Shots_Missed += 1;
+        rb.isKinematic = true;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = 0;
+        rb.rotation = 0;
+        isAlive = true;
+        this.gameObject.GetComponent<Renderer>().enabled = true;
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
