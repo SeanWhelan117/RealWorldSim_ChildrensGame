@@ -32,7 +32,7 @@ public class bubbleGoalScript : MonoBehaviour
         }
        
         RectCounter.gameObject.transform.localScale = scaleChange;
-
+        RectCounter.gameObject.GetComponent<SpriteRenderer>().color=gameObject.GetComponent<SpriteRenderer>().color;
     }
     
     public  void setSuitCaseColour()
@@ -40,17 +40,17 @@ public class bubbleGoalScript : MonoBehaviour
         int ColorCounter = Random.Range(1, 4);
         if (ColorCounter == 1)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.5f, 0.0f, 1.0f);
         }
         else if (ColorCounter == 2)
         {
             // set luggage to green if goal is green 
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.0f, 1.0f, 0.5f, 1.0f);
         }
         else if (ColorCounter == 3)
         {
             // set luggage to blue if goal is blue 
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.0f, 0.0f, 1.0f, 1.0f);
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.0f, 1.0f, 1.0f);
         }
         else if (ColorCounter == 4)
         {
