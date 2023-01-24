@@ -28,7 +28,7 @@ public class birdspawner : MonoBehaviour
         randomNum = Random.Range(1, 15);
         canSpawn=false;
         yield return new WaitForSeconds(TimeBetweenTryingToSpawn);
-        if (randomNum == 7)
+        if (randomNum == 7 || randomNum == 2)
         {
              GameObject birdy = Instantiate(bird, pos.position, pos.rotation);
         }

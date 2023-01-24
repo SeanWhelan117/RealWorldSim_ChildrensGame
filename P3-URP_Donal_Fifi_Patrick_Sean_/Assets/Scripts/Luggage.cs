@@ -18,8 +18,10 @@ public class Luggage : MonoBehaviour
     public GameObject GameManager;
     private bool isFired;
     public int shotsFiredData = 0;
+    public int shotsMissedData = 0;
+    private CalculateScore _calculateScore;
 
-    public ParticleSystem adamParticle;
+    //public ParticleSystem adamParticle;
 
     public float ColourTimer;
     
@@ -59,6 +61,7 @@ public class Luggage : MonoBehaviour
         isFired = false;
         isAlive = true;
         isGrounded = false;
+        shotsFiredData = 0;
 
     }
 
@@ -93,6 +96,7 @@ public class Luggage : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Luggage Scrip : " + shotsFiredData);
 
         ColourTimer += Time.deltaTime;
       
@@ -114,7 +118,7 @@ public class Luggage : MonoBehaviour
             isFired = true;
             lineRen.enabled = false;
             rb.isKinematic = false;
-            adamParticle.Play();
+            //adamParticle.Play();
 
         }
         if (rb.transform.position.y < -3.8)
@@ -134,7 +138,6 @@ public class Luggage : MonoBehaviour
         if (isReleased && isFired)
         {
             //Debug.Log("fireddd");
-            shotsFiredData += 1;
             joint.enabled = false;
             trailRen.enabled = true;
             if (isAlive)
@@ -179,8 +182,8 @@ public class Luggage : MonoBehaviour
     private IEnumerator Reset()
     {
         yield return new WaitForSeconds(1.0f);
-                lineRen.enabled = false;
-                ResetLuggage();
+        lineRen.enabled = false;
+        ResetLuggage();
     }
 
     private IEnumerator Release()
@@ -204,7 +207,15 @@ public class Luggage : MonoBehaviour
 
     public void ResetLuggage()
     {
-        adamParticle.Pause();
+        if (isFired == true)
+        {
+            shotsFiredData += 1;
+        }
+        //adamParticle.Pause();
+        if (isGrounded == true)
+        {
+            shotsMissedData += 1;
+        }
         transform.position = slingRb.position;
         transform.position = slingRb.transform.position;
         trailRen.enabled = false;
@@ -212,7 +223,6 @@ public class Luggage : MonoBehaviour
 
         joint.enabled = true;
         setColorSuitcase();
-        GameManager.GetComponent<CalculateScore>().Shots_Missed += 1;
         rb.isKinematic = true;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0;

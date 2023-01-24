@@ -31,7 +31,7 @@ public class collision : MonoBehaviour
             Debug.Log("OnRoof");
             this.gameObject.GetComponent<Luggage>().checkIsGrounded();
         }
-        if (collision.gameObject.CompareTag("ground"))
+        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("groundBase"))
         {
             Debug.Log("OnGround");
             this.gameObject.GetComponent<Luggage>().checkIsGrounded();

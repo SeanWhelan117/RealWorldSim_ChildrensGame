@@ -31,16 +31,29 @@ public class CalculateScore : MonoBehaviour
     {
         randSession = SystemInfo.deviceUniqueIdentifier;
         sendOff = true;
+        luggage = GameObject.FindGameObjectWithTag("luggage");
     }
     // Start is called before the first frame update
     void Update()
     {
-        Shots_Fired = luggage.gameObject.GetComponent<Luggage>().shotsFiredData;
-        Shots_hit = luggage.gameObject.GetComponent<collision>().shotsHit;
+        Debug.Log("Shots Missed : " + Shots_Missed);
+        Debug.Log("Shots Fired : " + Shots_Fired);
+        Debug.Log("Shots Hit : " + Shots_hit);
+
+        if (luggage != null)
+        {
+            Shots_Fired = luggage.gameObject.GetComponent<Luggage>().shotsFiredData;
+            Shots_Missed = luggage.gameObject.GetComponent<Luggage>().shotsMissedData;
+            Shots_hit = luggage.gameObject.GetComponent<collision>().shotsHit;
+        }
+        else
+        {
+            luggage = GameObject.FindGameObjectWithTag("luggage");
+        }
+
 
         if (Shots_Fired != 0 && Shots_hit != 0)
         {
-            Shots_Missed = Mathf.RoundToInt(Shots_hit / Shots_Fired);
             Evaluation_Score = Mathf.RoundToInt(Shots_Fired / Shots_Missed);
         }
 
@@ -49,12 +62,12 @@ public class CalculateScore : MonoBehaviour
             //luggage.GetComponent<Luggage>().setColorSuitcase();
            
            // LuggageIdentfier.GetComponent<bubbleGoalScript>().setSuitCaseColour();
-            Shots_Missed = 0;
+            //Shots_Missed = 0;
         }
         if (Shots_hit > 3)
         {
             SendData();
-            SceneManager.LoadScene("WinScene");
+            //SceneManager.LoadScene("WinScene");
 
         }
 

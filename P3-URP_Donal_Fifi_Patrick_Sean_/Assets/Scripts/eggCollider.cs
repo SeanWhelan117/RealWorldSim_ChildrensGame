@@ -9,8 +9,10 @@ public class eggCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("ground"))
+        if(collision.gameObject.CompareTag("groundBase"))
         {
+            Debug.Log("Egg hit ground");
+            this.gameObject.GetComponent<Renderer>().enabled = false;
             GameObject chick = Instantiate(chicken, transform.position, transform.rotation);
         }
     }

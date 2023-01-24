@@ -19,15 +19,23 @@ public class ArrowSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        newLuggage = GameObject.FindGameObjectWithTag("luggage");
-        initialLuggagePos = newLuggage.transform.position;
         arrow = Instantiate(pullBackArrow);
         arrow.SetActive(true);
+        newLuggage = GameObject.FindGameObjectWithTag("luggage");
+        if (newLuggage != null)
+        {
+            initialLuggagePos = newLuggage.transform.position;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (newLuggage == null)
+        {
+            newLuggage = GameObject.FindGameObjectWithTag("luggage");
+            initialLuggagePos = newLuggage.transform.position;
+        }
         if (newLuggage.transform.position != initialLuggagePos && setupArrow2 == false)
         {
             arrow.SetActive(false);

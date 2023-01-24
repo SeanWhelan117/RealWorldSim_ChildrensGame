@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1484610305635204945}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   Shots_hit: 0
   Shots_Missed: 0
   Evaluation_Score: 0
-  luggage: {fileID: 0}
+  luggage: {fileID: 6216356579969525654, guid: 75bf4b7d97bbd9a49bbfeb41e6379248, type: 3}
   LuggageIdentfier: {fileID: 0}
   secondsCount: 0
   secondsCountInt: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pullBackArrow: {fileID: 7238970569269075056, guid: c6d0635fb79c3924b8e0fa5f2a979aa0, type: 3}
   shootForwardArrow: {fileID: 4377644960467741505, guid: eb86f4aa6428351498752d479152c425, type: 3}
-  luggage: {fileID: 0}
+  luggage: {fileID: 6216356579969525654, guid: 75bf4b7d97bbd9a49bbfeb41e6379248, type: 3}
 --- !u!114 &1484610305635204945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints: []
-  sling: {fileID: 0}
-  luggage: {fileID: 0}
+  sling: {fileID: 4206346025077175805, guid: 44c1c018db6e52a4192bc674e22ade9e, type: 3}
+  luggage: {fileID: 6216356579969525654, guid: 75bf4b7d97bbd9a49bbfeb41e6379248, type: 3}
 --- !u!1 &1484610305775490660
 GameObject:
   m_ObjectHideFlags: 0

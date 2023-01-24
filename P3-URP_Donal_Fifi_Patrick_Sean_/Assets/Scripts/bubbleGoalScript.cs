@@ -10,13 +10,13 @@ public class bubbleGoalScript : MonoBehaviour
     public GameObject RectCounter;
     private Vector3 scaleChange;
     private Vector3 scalereset;
-    float decrement= 0.0005f;
+    float decrement= 0.0002f;
     void Start()
     { 
        gameObject.GetComponent<SpriteRenderer>().color = Goal.gameObject.GetComponent<SpriteRenderer>().color;
         TimerGlobal = 0;
-        scalereset= new Vector3(4.0f, 0.5f, 0.0f);
-        scaleChange = new Vector3 ( 4.0f, 0.5f, 0.0f );
+        scalereset= new Vector3(.95f, 0.5f, 0.0f);
+        scaleChange = new Vector3 ( .95f, 0.5f, 0.0f );
 
 
     }
@@ -24,7 +24,7 @@ public class bubbleGoalScript : MonoBehaviour
     {
         TimerGlobal += Time.deltaTime;
         scaleChange.x -= decrement;
-        if (TimerGlobal>20)
+        if (scaleChange.x < 0.01)
         {
             setSuitCaseColour();
             scaleChange = scalereset;

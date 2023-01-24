@@ -20,6 +20,7 @@ TagManager:
   - light
   - Pachinko
   - Roof
+  - groundBase
   layers:
   - Default
   - TransparentFX

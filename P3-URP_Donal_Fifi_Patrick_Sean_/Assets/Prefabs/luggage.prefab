@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 6216356579969525651}
   - component: {fileID: 6216356579969525650}
   - component: {fileID: 6216356579969525653}
-  - component: {fileID: 6216356579969525652}
   - component: {fileID: 6216356579969525655}
   - component: {fileID: 6216356579969525649}
   - component: {fileID: 6216356579969525742}
-  - component: {fileID: 6779440607571109564}
-  - component: {fileID: 6779440607571109565}
   - component: {fileID: 6735172903401119804}
+  - component: {fileID: 2905212519586981658}
+  - component: {fileID: 5145484812040771301}
   m_Layer: 6
   m_Name: luggage
   m_TagString: luggage
@@ -113,32 +112,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6216356579969525652
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6216356579969525654}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.29, y: 1.06}
-    newSize: {x: 4.23, y: 5.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!231 &6216356579969525655
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -266,7 +239,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6216356579969525654}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -357,41 +330,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &6779440607571109564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6216356579969525654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1626c7878321d474aaa3f75d461b1158, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  releaseDelay: 0
-  maxDragDistance: 1.8
-  m_goal: {fileID: 3968540314781218012, guid: 19b5902800f2b1e47927e38fe11a6a52, type: 3}
-  m_sling: {fileID: 4206346025077175805, guid: 44c1c018db6e52a4192bc674e22ade9e, type: 3}
-  GameManager: {fileID: 1484610305635204936, guid: 2a6cce9ccb63277489ec810d3d934f90, type: 3}
-  shotsFiredData: 0
-  adamParticle: {fileID: 767401541699469809, guid: 550acf5985a685d4b95e9512db319b29, type: 3}
-  ColourTimer: 0
---- !u!114 &6779440607571109565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6216356579969525654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a32aff4b873957342b48dfd5fbc4ba1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goal: {fileID: 3968540314781218012, guid: 19b5902800f2b1e47927e38fe11a6a52, type: 3}
-  GameManager: {fileID: 1484610305635204936, guid: 2a6cce9ccb63277489ec810d3d934f90, type: 3}
-  shotsHit: 0
 --- !u!70 &6735172903401119804
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -408,3 +346,38 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.94, y: 0.83}
   m_Direction: 1
+--- !u!114 &2905212519586981658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216356579969525654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1626c7878321d474aaa3f75d461b1158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  releaseDelay: 0
+  maxDragDistance: 2
+  m_goal: {fileID: 3968540314781218012, guid: 63aa4854f7c772243adeeb919f7670c2, type: 3}
+  m_sling: {fileID: 4206346025077175805, guid: 44c1c018db6e52a4192bc674e22ade9e, type: 3}
+  GameManager: {fileID: 1484610305635204936, guid: 2a6cce9ccb63277489ec810d3d934f90, type: 3}
+  shotsFiredData: 0
+  shotsMissedData: 0
+  ColourTimer: 0
+--- !u!114 &5145484812040771301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216356579969525654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32aff4b873957342b48dfd5fbc4ba1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: {fileID: 3968540314781218012, guid: 63aa4854f7c772243adeeb919f7670c2, type: 3}
+  GameManager: {fileID: 1484610305635204936, guid: 2a6cce9ccb63277489ec810d3d934f90, type: 3}
+  shotsHit: 0
