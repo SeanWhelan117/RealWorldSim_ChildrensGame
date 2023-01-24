@@ -21,7 +21,7 @@ public class Luggage : MonoBehaviour
     public int shotsMissedData = 0;
     private CalculateScore _calculateScore;
 
-    //public ParticleSystem adamParticle;
+    public ParticleSystem adamParticle;
 
     public float ColourTimer;
     
@@ -118,7 +118,7 @@ public class Luggage : MonoBehaviour
             isFired = true;
             lineRen.enabled = false;
             rb.isKinematic = false;
-            //adamParticle.Play();
+            adamParticle.Play();
 
         }
         if (rb.transform.position.y < -3.8)
@@ -211,7 +211,7 @@ public class Luggage : MonoBehaviour
         {
             shotsFiredData += 1;
         }
-        //adamParticle.Pause();
+        adamParticle.Pause();
         if (isGrounded == true)
         {
             shotsMissedData += 1;
